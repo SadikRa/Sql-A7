@@ -358,41 +358,46 @@ SELECT COUNT(*) FROM employees;
 
 SELECT COUNT(DISTINCT customer_id) FROM orders;
 -- এটি orders টেবিল থেকে ইউনিক customer_id গননা করবে, অর্থাৎ কতজন গ্রাহক অর্ডার করেছে।
+```
 
 SUM():
 SUM() ফাংশন একটি সংখ্যাগত কলামের মোট যোগফল প্রদান করে।
 
 উদাহরণ:
+```sql
 SELECT SUM(salary) FROM employees;
 -- এটি employees টেবিল থেকে সমস্ত কর্মচারীর বেতন যোগফল করবে।
 
 SELECT SUM(quantity * price) FROM order_items;
 -- এটি order_items টেবিল থেকে মোট আয়ের হিসাব করবে (quantity * price)।
+```
 
 AVG():
 AVG() ফাংশন একটি সংখ্যাগত কলামের গড় মান প্রদান করে।
 
 উদাহরণ:
-
+```sql
 SELECT AVG(salary) FROM employees;
 -- এটি employees টেবিল থেকে সমস্ত কর্মচারীর গড় বেতন বের করবে।
 
 SELECT AVG(price) FROM products;
 -- এটি products টেবিল থেকে সমস্ত পণ্যের গড় দাম বের করবে।
+```
 
 GROUP BY:
 GROUP BY ক্লজ ব্যবহার করে আপনি ডেটা গ্রুপ করতে পারেন একটি বা একাধিক কলামের ভিত্তিতে, তারপর প্রতিটি গ্রুপের জন্য অ্যাগ্রিগেট ফাংশন প্রয়োগ করতে পারেন।
 
 উদাহরণ:
-
+```sql
 SELECT department, AVG(salary) FROM employees GROUP BY department;
 -- এটি employees টেবিল থেকে প্রতিটি বিভাগের গড় বেতন বের করবে।
-
+```
 
 HAVING:
 HAVING ক্লজ GROUP BY এর পর গ্রুপকৃত ডেটা ফিল্টার করতে ব্যবহৃত হয়, যা WHERE এর মতো, তবে এটি অ্যাগ্রিগেট ফাংশনের জন্য ব্যবহৃত হয়।
 
 উদাহরণ:
-
+```sql
 SELECT department, AVG(salary) FROM employees GROUP BY department HAVING AVG(salary) > 50000;
 -- এটি শুধুমাত্র এমন বিভাগগুলির গড় বেতন দেখাবে যেগুলির গড় বেতন ৫০,০০০ এর বেশি।
+```
