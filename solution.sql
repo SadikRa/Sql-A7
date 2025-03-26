@@ -74,15 +74,15 @@ GROUP BY c.name;
 
 -- Calculate the total revenue generated from book sales
 SELECT SUM(b.price * o.quantity) AS total_revenue
-FROM orders o
-JOIN books b ON o.book_id = b.id;
+    FROM orders o
+    JOIN books b ON o.book_id = b.id;
 
 -- List all customers who have placed more than one order
 SELECT c.name, COUNT(o.id) AS orders_count
-FROM customers c
-JOIN orders o ON c.id = o.customer_id
-GROUP BY c.name
-HAVING COUNT(o.id) > 1;
+    FROM customers c
+    JOIN orders o ON c.id = o.customer_id
+    GROUP BY c.name
+    HAVING COUNT(o.id) > 1;
 
 -- Find the average price of books in the store
 SELECT AVG(price) AS avg_book_price
@@ -96,3 +96,4 @@ UPDATE books
 --  Delete customers who haven't placed any orders
 DELETE FROM customers
 WHERE id NOT IN (SELECT customer_id FROM orders);
+
